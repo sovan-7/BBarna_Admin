@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   TextInputType textInputType;
   bool passwordVisible = false;
   final Function? onIconPress;
+  FocusNode ?focusNode;
   CustomTextField(
       {required this.labelText,
       required this.title,
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
       this.textInputType = TextInputType.text,
       this.passwordVisible = false,
       this.onIconPress,
+      this.focusNode,
       super.key});
 
   @override
@@ -47,7 +49,7 @@ class CustomTextField extends StatelessWidget {
           ),
           child: TextField(
             obscureText: passwordVisible,
-           
+           focusNode:focusNode ,
             controller: textEditingController,
             keyboardType: textInputType,
             inputFormatters: textInputType == TextInputType.number

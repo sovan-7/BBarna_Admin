@@ -25,7 +25,7 @@ class StudentViewModel with ChangeNotifier {
   EnrolledCourseBaseModel? enrolledCourseBaseModel;
   int selectedUnitLength = 0;
   int selectedEditedUnitListLength = 0;
-  int limit = 50;
+  int limit = 300;
   int studentListLength = 0;
   late DocumentSnapshot<Map<String, dynamic>> lastDoc;
   List<DocumentSnapshot<Map<String, dynamic>>> docList = [];
@@ -352,6 +352,7 @@ class StudentViewModel with ChangeNotifier {
       notifyListeners();
       Navigator.pop(navigatorKey.currentContext!);
     } catch (e) {
+      
       Navigator.pop(navigatorKey.currentContext!);
       Helper.showSnackBarMessage(
           msg: "Error while fetching data", isSuccess: false);

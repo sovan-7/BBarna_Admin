@@ -15,7 +15,7 @@ class Student {
   String? collegeName = stringDefault;
   bool? isTmsAccepted;
   Address? address;
-  int? deviceCount = intDefault;
+  dynamic deviceCount = intDefault;
   int? loginTime = intDefault;
 
   Student(

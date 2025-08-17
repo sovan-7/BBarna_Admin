@@ -19,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   bool isLoaderVisible = false;
   bool isPasswordVisible = false;
+  FocusNode focusNode1 = FocusNode();
+  FocusNode focusNode2 = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,17 +65,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: AppColorsInApp.colorWhite),
                                   ),
                                   CustomTextField(
-                                      labelText: "username",
-                                      title: "",
-                                      isBorderRadius: false,
-                                      textEditingController:
-                                          userNameController),
+                                    labelText: "username",
+                                    title: "",
+                                    isBorderRadius: false,
+                                    textEditingController: userNameController,
+                                    focusNode: focusNode1,
+                                  ),
                                   CustomTextField(
                                     labelText: "password",
                                     title: "",
                                     isBorderRadius: false,
                                     textEditingController: passwordController,
                                     passwordVisible: isPasswordVisible,
+                                    focusNode: focusNode2,
                                     onIconPress: () {
                                       setState(() {
                                         isPasswordVisible = !isPasswordVisible;
