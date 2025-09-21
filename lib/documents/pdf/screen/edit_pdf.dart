@@ -34,6 +34,7 @@ class _EditPdfState extends State<EditPdf> {
   Uint8List? selectedPdfBytes;
   String pdfName = "";
   bool isLocked = false;
+  bool isDownloadable = false;
 
   List<String> pdfTypeList = ["FREE", "PAID"];
   String? _selectedPdfType;
@@ -49,6 +50,7 @@ class _EditPdfState extends State<EditPdf> {
       _selectedPdfType = widget.pdfData.pdfType;
       pdfName = "${widget.pdfData.code}_pdf.pdf";
       isLocked = widget.pdfData.isLocked;
+      isDownloadable = widget.pdfData.isDownloadable;
     });
     super.initState();
   }
@@ -276,6 +278,53 @@ class _EditPdfState extends State<EditPdf> {
                                           )),
                                       Padding(
                                           padding:
+                                              const EdgeInsets.only(top: 15.0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const Text(
+                                                "Is Downloadable: ",
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: AppColorsInApp
+                                                        .colorGrey),
+                                              ),
+                                              ToggleSwitch(
+                                                minWidth: 90.0,
+                                                cornerRadius: 10.0,
+                                                activeBgColors: [
+                                                  const [
+                                                    AppColorsInApp.colorLightRed
+                                                  ],
+                                                  [
+                                                    AppColorsInApp
+                                                        .colorSecondary!
+                                                  ],
+                                                ],
+                                                activeFgColor: Colors.white,
+                                                inactiveBgColor: Colors.grey,
+                                                inactiveFgColor: Colors.white,
+                                                initialLabelIndex:
+                                                    isDownloadable ? 1 : 0,
+                                                totalSwitches: 2,
+                                                labels: const ['NO', 'YES'],
+                                                radiusStyle: true,
+                                                onToggle: (index) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      isDownloadable = false;
+                                                    } else {
+                                                      isDownloadable = true;
+                                                    }
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          )),
+                                      Padding(
+                                          padding:
                                               const EdgeInsets.only(top: 35),
                                           child: SaveButton(
                                             onPRess: () {
@@ -292,7 +341,7 @@ class _EditPdfState extends State<EditPdf> {
                                                         .text,
                                                     pdfTitleController.text,
                                                     widget.pdfData.pdfLink,
-                                                    false,
+                                                    isDownloadable,
                                                     _selectedPdfType ??
                                                         stringDefault,
                                                     widget.pdfData.timeStamp,

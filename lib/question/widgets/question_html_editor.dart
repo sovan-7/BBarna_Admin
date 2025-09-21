@@ -64,6 +64,7 @@ class QuestionHtmlEditor extends StatelessWidget {
                     dropdownMenuDirection: DropdownMenuDirection.down,
                     dropdownItemHeight: 60,
                     toolbarType: ToolbarType.nativeScrollable,
+                    
                     defaultToolbarButtons: [
                       StyleButtons(),
                       FontSettingButtons(),
@@ -81,7 +82,9 @@ class QuestionHtmlEditor extends StatelessWidget {
                     spellCheck: true,
                     adjustHeightForKeyboard: false,
                     androidUseHybridComposition: false,
+                    
                   ),
+                 
                   otherOptions: const OtherOptions(
                       height: 200, decoration: BoxDecoration()),
                 ),

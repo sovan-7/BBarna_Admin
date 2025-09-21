@@ -33,6 +33,7 @@ class _AddPdfState extends State<AddPdf> {
   Uint8List? selectedPdfBytes;
   String pdfName = "";
   bool isLocked = false;
+  bool isDownloadable = false;
 
   List<String> pdfTypeList = ["FREE", "PAID"];
   String? _selectedPdfType;
@@ -261,6 +262,53 @@ class _AddPdfState extends State<AddPdf> {
                                           )),
                                       Padding(
                                           padding:
+                                              const EdgeInsets.only(top: 15.0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const Text(
+                                                "Is Downloadable: ",
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: AppColorsInApp
+                                                        .colorGrey),
+                                              ),
+                                              ToggleSwitch(
+                                                minWidth: 90.0,
+                                                cornerRadius: 10.0,
+                                                activeBgColors: [
+                                                  const [
+                                                    AppColorsInApp.colorLightRed
+                                                  ],
+                                                  [
+                                                    AppColorsInApp
+                                                        .colorSecondary!
+                                                  ],
+                                                ],
+                                                activeFgColor: Colors.white,
+                                                inactiveBgColor: Colors.grey,
+                                                inactiveFgColor: Colors.white,
+                                                initialLabelIndex:
+                                                    isDownloadable ? 1 : 0,
+                                                totalSwitches: 2,
+                                                labels: const ['NO', 'YES'],
+                                                radiusStyle: true,
+                                                onToggle: (index) {
+                                                  setState(() {
+                                                    if (index == 0) {
+                                                      isDownloadable = false;
+                                                    } else {
+                                                      isDownloadable = true;
+                                                    }
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          )),
+                                      Padding(
+                                          padding:
                                               const EdgeInsets.only(top: 35),
                                           child: SaveButton(
                                             onPRess: () {
@@ -278,7 +326,7 @@ class _AddPdfState extends State<AddPdf> {
                                                         .text,
                                                     pdfTitleController.text,
                                                     "",
-                                                    false,
+                                                    isDownloadable,
                                                     _selectedPdfType ??
                                                         stringDefault,
                                                     DateTime.now()
