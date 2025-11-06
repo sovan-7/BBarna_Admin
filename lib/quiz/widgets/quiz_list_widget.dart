@@ -114,8 +114,8 @@ class QuizListWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: quizModel.type.toLowerCase() == "free"
-                          ? AppColorsInApp.colorSecondary!.withOpacity(0.5)
-                          : AppColorsInApp.colorPrimary.withOpacity(0.5)),
+                          ? AppColorsInApp.colorSecondary!.withValues(alpha: .5)
+                          : AppColorsInApp.colorPrimary.withValues(alpha: .5)),
                   child: Text(
                     quizModel.type,
                     style: const TextStyle(
@@ -135,7 +135,7 @@ class QuizListWidget extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: AppColorsInApp.colorOrange.withOpacity(0.5)),
+                        color: AppColorsInApp.colorOrange.withValues(alpha: .5)),
                     child: Text(
                       quizModel.status,
                       style: const TextStyle(

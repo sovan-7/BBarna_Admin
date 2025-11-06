@@ -33,7 +33,7 @@ class StudentViewModel with ChangeNotifier {
   EnrolledCourseModel? selectedSubjectModel;
 
   List<UnitModel> editUnitList = [];
-  clearStudentData() {
+  void clearStudentData() {
     enrolledCourseBaseModel = null;
     selectedEditUnitList.clear();
     unitList.clear();
@@ -51,7 +51,7 @@ class StudentViewModel with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  getEnrolledCourseList(String studentId) async {
+  Future<void> getEnrolledCourseList(String studentId) async {
     try {
       enrolledCourseBaseModel =
           await _studentRepo.getEnrolledCourseList(studentId);
@@ -90,13 +90,13 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  clearUnitList() {
+  void clearUnitList() {
     selectedUnitList.clear();
     unitList.clear();
     selectedUnitLength = 0;
   }
 
-  updateCheckList(int index) {
+  void updateCheckList(int index) {
     if (selectedUnitList[index] == "") {
       selectedUnitList[index] = unitList[index].code;
     } else {
@@ -111,7 +111,7 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  setAllCheckList() {
+  void setAllCheckList() {
     if (selectedUnitList.contains("")) {
       for (int i = 0; i < unitList.length; i++) {
         selectedUnitList[i] = unitList[i].code;
@@ -180,7 +180,7 @@ class StudentViewModel with ChangeNotifier {
     }
   }
 
-  searchStudent({required String searchText}) {
+  void searchStudent({required String searchText}) {
     if (searchText.isEmpty) {
       studentList = copyStudentList;
     } else {
@@ -227,7 +227,7 @@ class StudentViewModel with ChangeNotifier {
     }
   }
 
-  setEditedUnitList(String subjectCode) async {
+  Future<void> setEditedUnitList(String subjectCode) async {
     LoaderDialogs.showLoadingDialog();
     selectedEditUnitList.clear();
     selectedSubjectModel = null;
@@ -251,7 +251,7 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  updateEditedUnitList() {
+  void updateEditedUnitList() {
     if (editedUnitList.contains("")) {
       for (int i = 0; i < editedUnitList.length; i++) {
         editedUnitList[i] = selectedEditUnitList[i].code;
@@ -270,7 +270,7 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  updateEditedCheckList(int index) {
+  void updateEditedCheckList(int index) {
     if (editedUnitList[index] == "") {
       editedUnitList[index] = selectedEditUnitList[index].code;
     } else {
@@ -285,7 +285,7 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  setEditUnitData(List<UnitModel> unitData) {
+  void setEditUnitData(List<UnitModel> unitData) {
     editUnitList = unitData;
     notifyListeners();
   }
@@ -315,12 +315,12 @@ class StudentViewModel with ChangeNotifier {
     }
   }
 
-  removeStudent(int index) {
+  void removeStudent(int index) {
     studentList.removeAt(index);
     notifyListeners();
   }
 
-  clearDeviceCount(int index) {
+  void clearDeviceCount(int index) {
     studentList[index].deviceCount = 0;
 
     notifyListeners();
@@ -391,7 +391,7 @@ class StudentViewModel with ChangeNotifier {
     }
   }
 
-  removeStudentFromLast() {
+  void removeStudentFromLast() {
     int range = (studentList.length % limit);
     if (range == 0) {
       range = limit;
@@ -403,7 +403,7 @@ class StudentViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getStudentListLength() async {
+  Future<void> getStudentListLength() async {
     AggregateQuerySnapshot countSnapshot =
         await FirebaseFirestore.instance.collection(student).count().get();
     studentListLength = countSnapshot.count ?? 0;

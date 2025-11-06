@@ -88,11 +88,11 @@ class UnitViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  filterUnit() {
+  void filterUnit() {
     unitList.sort((a, b) => b.timeStamp.compareTo(a.timeStamp));
   }
 
-  searchUnit({required String searchText}) async {
+  Future<void> searchUnit({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -114,7 +114,7 @@ class UnitViewModel with ChangeNotifier {
     });
   }
 
-  removeUnitFromLast() {
+  void removeUnitFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -132,7 +132,7 @@ class UnitViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getUnitListLength() async {
+  Future<void> getUnitListLength() async {
     unitLength = await _unitRepo.getUnitListLength();
     notifyListeners();
   }

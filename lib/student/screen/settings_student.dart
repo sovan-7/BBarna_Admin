@@ -83,7 +83,7 @@ class _SettingStudentState extends State<SettingStudent> {
                             left: 20,
                             right: 20,
                           ),
-                          color: AppColorsInApp.colorGrey.withOpacity(0.1),
+                          color: AppColorsInApp.colorGrey.withValues(alpha: .1),
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -543,7 +543,7 @@ class _SettingStudentState extends State<SettingStudent> {
                                                                         5),
                                                             color: AppColorsInApp
                                                                 .colorOrange
-                                                                .withOpacity(
+                                                                .withValues(alpha: 
                                                                     0.1),
                                                           ),
                                                           child: Row(
@@ -619,7 +619,7 @@ class _SettingStudentState extends State<SettingStudent> {
                                                                       decoration: BoxDecoration(
                                                                           borderRadius: BorderRadius.circular(
                                                                               3),
-                                                                          color: AppColorsInApp.colorBlue.withOpacity(
+                                                                          color: AppColorsInApp.colorBlue.withValues(alpha: 
                                                                               0.5)),
                                                                       child: Text(
                                                                           "Total Unit: ${studentVM.enrolledCourseBaseModel!.enrolledCourseList[index].unitCodeList.length}")),
@@ -760,7 +760,7 @@ class _SettingStudentState extends State<SettingStudent> {
             : null);
   }
 
-  selectDate(BuildContext context) async {
+  Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),

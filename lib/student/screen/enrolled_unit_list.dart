@@ -86,7 +86,7 @@ class _EnrolledUnitListState extends State<EnrolledUnitList> {
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
-                        color: AppColorsInApp.colorOrange.withOpacity(0.05),
+                        color: AppColorsInApp.colorOrange.withValues(alpha: .05),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

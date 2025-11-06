@@ -5,7 +5,7 @@ class AppColorsInApp {
   static final colorSecondary = Colors.greenAccent[700];
   static const colorBlue = Colors.blue;
   static const colorGrey = Colors.grey;
-  static final colorGreyWhite = Colors.grey.withOpacity(0.5);
+  static final colorGreyWhite = Colors.grey.withValues(alpha: .5);
   static const colorBlack1 = Colors.black;
   static const colorWhite = Colors.white;
   static final colorYellow = Colors.yellow[800];

@@ -4,7 +4,7 @@ import 'package:bbarna/resources/constant.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Helper {
-  static showSnackBarMessage(
+  static Future<void> showSnackBarMessage(
       {required String msg, required bool isSuccess}) async {
     ScaffoldMessenger.of(navigatorKey.currentContext!).showSnackBar(SnackBar(
       dismissDirection: DismissDirection.up,

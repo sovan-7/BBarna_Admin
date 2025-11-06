@@ -34,7 +34,10 @@ class _AddVideoState extends State<AddVideo> {
     return Scaffold(
         key: key,
         body: PopScope(
-            onPopInvoked: (bool val) {},
+            onPopInvokedWithResult: (didPop, result) {
+              if (didPop) return;
+              // handle back press
+            },
             canPop: true,
             child: Column(children: [
               AppHeader(
@@ -56,7 +59,7 @@ class _AddVideoState extends State<AddVideo> {
                         left: 20,
                         right: 20,
                       ),
-                      color: Colors.grey.withOpacity(0.1),
+                      color: Colors.grey.withValues(alpha: .1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,

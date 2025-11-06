@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               decoration: BoxDecoration(
                                 color:
-                                    AppColorsInApp.colorWhite.withOpacity(0.2),
+                                    AppColorsInApp.colorWhite.withValues(alpha: .2),
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,

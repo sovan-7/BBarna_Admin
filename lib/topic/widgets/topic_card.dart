@@ -32,10 +32,10 @@ class TopicCard extends StatelessWidget {
       "Quiz: ${topicData.quizCodeList.length}"
     ];
     List<Color> colorList = [
-      AppColorsInApp.colorOrange.withOpacity(0.5),
-      AppColorsInApp.colorSecondary!.withOpacity(0.5),
-      AppColorsInApp.colorPrimary.withOpacity(0.5),
-      AppColorsInApp.colorBlue.withOpacity(0.5)
+      AppColorsInApp.colorOrange.withValues(alpha: .5),
+      AppColorsInApp.colorSecondary!.withValues(alpha: .5),
+      AppColorsInApp.colorPrimary.withValues(alpha: .5),
+      AppColorsInApp.colorBlue.withValues(alpha: .5)
     ];
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
@@ -75,7 +75,7 @@ class TopicCard extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: AppColorsInApp.colorBlue.withOpacity(0.5)),
+                            color: AppColorsInApp.colorBlue.withValues(alpha: .5)),
                         child: const Text(
                           "Course Name: ",
                           style: TextStyle(

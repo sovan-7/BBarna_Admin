@@ -106,8 +106,8 @@ class PdfListWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: pdfData.pdfType.toLowerCase() == "free"
-                          ? AppColorsInApp.colorSecondary!.withOpacity(0.5)
-                          : AppColorsInApp.colorPrimary.withOpacity(0.5)),
+                          ? AppColorsInApp.colorSecondary!.withValues(alpha: .5)
+                          : AppColorsInApp.colorPrimary.withValues(alpha: .5)),
                   child: Text(
                     pdfData.pdfType,
                     style: const TextStyle(

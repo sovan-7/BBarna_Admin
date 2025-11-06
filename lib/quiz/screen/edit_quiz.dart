@@ -96,7 +96,7 @@ class _EditQuizState extends State<EditQuiz> {
                           padding: const EdgeInsets.only(
                               left: 20, right: 20, top: 20),
                           alignment: Alignment.center,
-                          color: AppColorsInApp.colorGrey.withOpacity(0.1),
+                          color: AppColorsInApp.colorGrey.withValues(alpha: .1),
                           child: SingleChildScrollView(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -661,7 +661,7 @@ class _EditQuizState extends State<EditQuiz> {
                                   child: Container(
                                     decoration: BoxDecoration(
                                       color: AppColorsInApp.colorLightBlue
-                                          .withOpacity(0.2),
+                                          .withValues(alpha: .2),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     padding: const EdgeInsets.only(

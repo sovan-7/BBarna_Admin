@@ -76,7 +76,7 @@ class VideoViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchVideo({required String searchText}) async {
+  Future<void> searchVideo({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -97,7 +97,7 @@ class VideoViewModel with ChangeNotifier {
     });
   }
 
-  removeQuizFromLast() {
+  void removeQuizFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -115,7 +115,7 @@ class VideoViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getVideoListLength() async {
+  Future<void> getVideoListLength() async {
     videoListLength = await _videoRepo.getVideoListLength();
     notifyListeners();
   }

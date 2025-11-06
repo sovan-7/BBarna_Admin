@@ -102,7 +102,7 @@ class _VideoListState extends State<VideoList> {
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColorsInApp.colorGrey.withOpacity(0.2)),
+                      color: AppColorsInApp.colorGrey.withValues(alpha: .2)),
                   child: ListView.builder(
                       itemCount: videoDataProvider.videoList.length,
                       itemBuilder: (context, index) {

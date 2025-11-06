@@ -37,7 +37,12 @@ class _AddQuestionState extends State<AddQuestion> {
     return Scaffold(
         key: key,
         body: PopScope(
-          onPopInvoked: (bool val) {},
+         onPopInvokedWithResult: (didPop, result) {
+    if (!didPop) {
+      Navigator.of(context).pop();
+    }
+  },
+
           canPop: true,
           child: Column(children: [
             AppHeader(
@@ -73,7 +78,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                     width: 1,
                                     color: AppColorsInApp.colorGreyWhite),
                                 color:
-                                    AppColorsInApp.colorBlue.withOpacity(0.1)),
+                                    AppColorsInApp.colorBlue.withValues(alpha: .1)),
                             child: Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 10),
@@ -404,7 +409,7 @@ class _AddQuestionState extends State<AddQuestion> {
     }
   }
 
-  clearControllerData() {
+  void clearControllerData() {
     questionCodeController.clear();
     questionController.clear();
     questionBodyController.clear();

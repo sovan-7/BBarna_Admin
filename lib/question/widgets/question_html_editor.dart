@@ -54,7 +54,7 @@ class QuestionHtmlEditor extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border.all(
                       width: 1,
-                      color: AppColorsInApp.colorBlack1.withOpacity(0.2)),
+                      color: AppColorsInApp.colorBlack1.withValues(alpha: .2)),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: HtmlEditor(

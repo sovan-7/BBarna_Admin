@@ -20,7 +20,7 @@ class ChooseImage extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: AppColorsInApp.colorGrey.withOpacity(0.2),
+              color: AppColorsInApp.colorGrey.withValues(alpha: .2),
             ),
             child:  Text(title,
                 style:const TextStyle(

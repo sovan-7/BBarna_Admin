@@ -82,7 +82,7 @@ class PdfViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchPdf({required String searchText}) async {
+  Future<void> searchPdf({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -103,7 +103,7 @@ class PdfViewModel with ChangeNotifier {
     });
   }
 
-  removePdfFromLast() {
+  void removePdfFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -121,7 +121,7 @@ class PdfViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getPdfListLength() async {
+  Future<void> getPdfListLength() async {
     pdfListLength = await _pdfRepo.getPdfListLength();
     notifyListeners();
   }

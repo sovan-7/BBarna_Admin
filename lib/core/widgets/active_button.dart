@@ -12,7 +12,7 @@ class ActiveButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: isActive
-            ? AppColorsInApp.colorSecondary!.withOpacity(0.7)
+            ? AppColorsInApp.colorSecondary!.withValues(alpha: .7)
             : AppColorsInApp.colorLightRed,
       ),
       child: const Text(

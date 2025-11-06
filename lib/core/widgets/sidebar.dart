@@ -85,7 +85,10 @@ class _SidebarState extends State<Sidebar> {
       child: Scaffold(
           key: key,
           body: PopScope(
-            onPopInvoked: (val) {},
+            onPopInvokedWithResult: (didPop, result) {
+              if (didPop) return;
+              // handle back press
+            },
             canPop: false,
             child: Column(
               children: [
@@ -112,8 +115,8 @@ class _SidebarState extends State<Sidebar> {
                               ),
                               Expanded(
                                 child: Container(
-                                  color:
-                                      AppColorsInApp.colorGrey.withOpacity(0.4),
+                                  color: AppColorsInApp.colorGrey
+                                      .withValues(alpha: .4),
                                   child: ListView.builder(
                                       itemCount: drawerItems.length,
                                       itemBuilder: (context, index) {

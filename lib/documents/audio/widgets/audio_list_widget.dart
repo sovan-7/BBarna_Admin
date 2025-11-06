@@ -211,8 +211,8 @@ class _AudioListWidgetState extends State<AudioListWidget> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: widget.audioData.audioType.toLowerCase() == "free"
-                          ? AppColorsInApp.colorSecondary!.withOpacity(0.5)
-                          : AppColorsInApp.colorPrimary.withOpacity(0.5)),
+                          ? AppColorsInApp.colorSecondary!.withValues(alpha: .5)
+                          : AppColorsInApp.colorPrimary.withValues(alpha: .5)),
                   child: Text(
                     widget.audioData.audioType,
                     style: const TextStyle(

@@ -76,7 +76,7 @@ class QuestionViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  setControllerData({required Question question}) async {
+  Future<void> setControllerData({required Question question}) async {
     questionCodeController.text = question.questionCode;
     questionController.setText(question.question);
     questionBodyController.setText(question.questionBody);
@@ -90,7 +90,7 @@ class QuestionViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  clearControllerData() {
+  void clearControllerData() {
     questionCodeController.clear();
     questionController.clear();
     questionBodyController.clear();
@@ -119,12 +119,12 @@ class QuestionViewModel extends ChangeNotifier {
     return option;
   }
 
-  setSelectedIndex(int index) {
+  void setSelectedIndex(int index) {
     selectIndex = index;
     notifyListeners();
   }
 
-  getQuestionListLength() async {
+  Future<void> getQuestionListLength() async {
     AggregateQuerySnapshot countSnapshot =
         await _fireStore.collection(question).count().get();
     questionListLength = countSnapshot.count ?? 0;
@@ -164,7 +164,7 @@ class QuestionViewModel extends ChangeNotifier {
     }
   }
 
-  removeQuestionFromLast() {
+  void removeQuestionFromLast() {
     int range = (questionList.length % limit);
     if (range == 0) {
       range = limit;
@@ -175,7 +175,7 @@ class QuestionViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  searchQuestion({required String searchText}) async {
+  Future<void> searchQuestion({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {

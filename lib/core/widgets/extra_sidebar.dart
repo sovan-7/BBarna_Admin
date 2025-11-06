@@ -64,7 +64,7 @@ class _ExtraSideBarState extends State<ExtraSideBar> {
         ),
         Expanded(
           child: Container(
-            color: AppColorsInApp.colorGrey.withOpacity(0.4),
+            color: AppColorsInApp.colorGrey.withValues(alpha: .4),
             child: ListView.builder(
                 itemCount: drawerItems.length,
                 itemBuilder: (context, index) {

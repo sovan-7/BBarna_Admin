@@ -79,7 +79,7 @@ class _EditQuestionState extends State<EditQuestion> {
                                     width: 1,
                                     color: AppColorsInApp.colorGreyWhite),
                                 color:
-                                    AppColorsInApp.colorBlue.withOpacity(0.1)),
+                                    AppColorsInApp.colorBlue.withValues(alpha: .1)),
                             child: Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 10),

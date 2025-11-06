@@ -23,7 +23,7 @@ class SidebarWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
             bottom: BorderSide(
-                width: 1, color: AppColorsInApp.colorBlack1.withOpacity(0.5))),
+                width: 1, color: AppColorsInApp.colorBlack1.withValues(alpha: .5))),
         color: isSelected ? AppColorsInApp.colorOrange : Colors.transparent,
       ),
       child: Row(

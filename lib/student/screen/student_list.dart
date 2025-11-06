@@ -166,7 +166,7 @@ class _StudentListState extends State<StudentList> {
                     ),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: AppColorsInApp.colorGrey.withOpacity(0.2)),
+                        color: AppColorsInApp.colorGrey.withValues(alpha: .2)),
                     child: ListView.builder(
                       itemCount: studentDataProvider.studentList.length,
                       itemBuilder: (context, index) {

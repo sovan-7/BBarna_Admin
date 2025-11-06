@@ -29,8 +29,9 @@ class _AddBannerState extends State<AddBanner> {
     return Scaffold(
         key: key,
         body: PopScope(
-          onPopInvoked: (bool val) async {
-            //await courseViewModel.getCourseList();
+          onPopInvokedWithResult: (didPop, result) {
+            if (didPop) return;
+            // handle back press
           },
           canPop: true,
           child: Column(children: [
@@ -51,18 +52,17 @@ class _AddBannerState extends State<AddBanner> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        if(selectedImageBytes!=null)
+                        if (selectedImageBytes != null)
                           Container(
                             height: 200,
                             width: 180,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
-                                image:  DecorationImage(
+                                image: DecorationImage(
                                   image: MemoryImage(selectedImageBytes!),
                                   fit: BoxFit.fill,
                                 )),
                           ),
-                        
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
                           child: ChooseImage(
@@ -70,7 +70,7 @@ class _AddBannerState extends State<AddBanner> {
                               var picked = await FilePicker.platform.pickFiles(
                                 type: FileType.image,
                               );
-                    
+
                               if (picked != null) {
                                 setState(() {
                                   selectedImageBytes = picked.files.first.bytes;

@@ -96,7 +96,7 @@ class TopicViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchTopic({required String searchText}) async {
+  Future<void> searchTopic({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -117,7 +117,7 @@ class TopicViewModel with ChangeNotifier {
     });
   }
 
-  removeTopicFromLast() {
+  void removeTopicFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -135,7 +135,7 @@ class TopicViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getTopicListLength() async {
+  Future<void> getTopicListLength() async {
     topicLength = await _topicRepo.getTopicListLength();
     notifyListeners();
   }

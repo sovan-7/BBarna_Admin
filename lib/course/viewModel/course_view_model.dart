@@ -50,7 +50,7 @@ class CourseViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchCourse({required String searchText}) {
+  void searchCourse({required String searchText}) {
     if (searchText.isEmpty) {
       courseList = copyCourseList;
     } else {
@@ -63,7 +63,7 @@ class CourseViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  filterCourse() {
+  void filterCourse() {
     courseList.sort((a, b) => b.timeStamp.compareTo(a.timeStamp));
   }
 }

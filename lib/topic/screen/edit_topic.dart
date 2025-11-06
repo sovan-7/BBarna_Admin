@@ -90,7 +90,7 @@ class _EditTopicState extends State<EditTopic> {
                           left: 20,
                           right: 20,
                         ),
-                        color: AppColorsInApp.colorGrey.withOpacity(0.1),
+                        color: AppColorsInApp.colorGrey.withValues(alpha: .1),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,

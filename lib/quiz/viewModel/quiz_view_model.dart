@@ -79,7 +79,7 @@ class QuizViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  fetchQuestionListById(String questionCode) async {
+  Future<void> fetchQuestionListById(String questionCode) async {
     try {
       LoaderDialogs.showLoadingDialog();
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
@@ -107,7 +107,7 @@ class QuizViewModel with ChangeNotifier {
     }
   }
 
-  fetchQuizQuestionList(List<String> questionCodeList) async {
+  Future<void> fetchQuizQuestionList(List<String> questionCodeList) async {
     try {
       quizQuestionList.clear();
 
@@ -143,22 +143,22 @@ class QuizViewModel with ChangeNotifier {
     }
   }
 
-  clearData() {
+  void clearData() {
     questionList.clear();
     quizQuestionList.clear();
   }
 
-  addNewQuestion(int index) {
+  void addNewQuestion(int index) {
     questionList[index].isSelected = !questionList[index].isSelected;
     notifyListeners();
   }
 
-  updateOldQuestion(int index) {
+  void updateOldQuestion(int index) {
     quizQuestionList[index].isSelected = !quizQuestionList[index].isSelected;
     notifyListeners();
   }
 
-  searchQuiz({required String searchText}) async {
+  Future<void> searchQuiz({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -179,7 +179,7 @@ class QuizViewModel with ChangeNotifier {
     });
   }
 
-  removeQuizFromLast() {
+  void removeQuizFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -198,12 +198,12 @@ class QuizViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getQuizListLength() async {
+  Future<void> getQuizListLength() async {
     quizLength = await _quizRepo.getQuizListLength();
     notifyListeners();
   }
 
-  selectAllQuestion(bool isSelect) {
+  void selectAllQuestion(bool isSelect) {
     if (isSelect) {
       for (int i = 0; i < questionList.length; i++) {
         questionList[i].isSelected = true;

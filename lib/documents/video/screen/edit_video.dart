@@ -48,7 +48,10 @@ class _AddVideoState extends State<EditVideo> {
     return Scaffold(
         key: key,
         body: PopScope(
-            onPopInvoked: (bool val) {},
+            onPopInvokedWithResult: (didPop, result) {
+              if (didPop) return;
+              // handle back press
+            },
             canPop: true,
             child: Column(children: [
               AppHeader(
@@ -70,7 +73,7 @@ class _AddVideoState extends State<EditVideo> {
                         left: 20,
                         right: 20,
                       ),
-                      color: Colors.grey.withOpacity(0.1),
+                      color: Colors.grey.withValues(alpha: .1),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,10 +225,13 @@ class _AddVideoState extends State<EditVideo> {
                                                 videoLinkController
                                                     .text.isNotEmpty &&
                                                 videoTitleController
-                                                    .text.isNotEmpty&&_selectedVideoType!=null) {
+                                                    .text.isNotEmpty &&
+                                                _selectedVideoType != null) {
                                               VideoModel videoModel =
                                                   VideoModel(
-                                                videoCodeController.text.trim().toUpperCase(),
+                                                videoCodeController.text
+                                                    .trim()
+                                                    .toUpperCase(),
                                                 videoDescriptionController.text,
                                                 videoTitleController.text,
                                                 videoLinkController.text,
@@ -248,7 +254,7 @@ class _AddVideoState extends State<EditVideo> {
                                                 Navigator.pop(context);
                                               });
                                             } else {
-                                            if (videoCodeController
+                                              if (videoCodeController
                                                   .text.isEmpty) {
                                                 Helper.showSnackBarMessage(
                                                     msg:

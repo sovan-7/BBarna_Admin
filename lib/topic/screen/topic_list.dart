@@ -94,7 +94,7 @@ class _TopicListState extends State<TopicList> {
                 ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey.withOpacity(0.2)),
+                    color: Colors.grey.withValues(alpha: .2)),
                 child: ListView.builder(
                     itemCount: topicDataProvider.topicList.length,
                     itemBuilder: (context, index) {

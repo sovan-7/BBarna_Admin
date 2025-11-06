@@ -45,7 +45,7 @@ class AudioViewModel with ChangeNotifier {
     }
   }
 
-  clearAudioList() {
+  void clearAudioList() {
     audioList.clear();
     copyAudioList.clear();
     notifyListeners();
@@ -89,7 +89,7 @@ class AudioViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchAudio({required String searchText}) async {
+  Future<void> searchAudio({required String searchText}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       if (searchText.isEmpty) {
@@ -110,7 +110,7 @@ class AudioViewModel with ChangeNotifier {
     });
   }
 
-  removeAudioFromLast() {
+  void removeAudioFromLast() {
     int exesData = docList.length % limit;
     if (exesData > 0) {
       docList.removeRange((docList.length - exesData), docList.length);
@@ -128,12 +128,12 @@ class AudioViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getAudioListLength() async {
+  Future<void> getAudioListLength() async {
     audioListLength = await _audioRepo.getAudioListLength();
     notifyListeners();
   }
 
-  clearData() {
+  void clearData() {
     audioList.clear();
     copyAudioList.clear();
     notifyListeners();

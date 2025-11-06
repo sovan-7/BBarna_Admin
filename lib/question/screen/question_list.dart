@@ -116,7 +116,7 @@ class _QuestionListState extends State<QuestionList> {
                           vertical: 10, horizontal: 0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: AppColorsInApp.colorGrey.withOpacity(0.2)),
+                          color: AppColorsInApp.colorGrey.withValues(alpha: .2)),
                       child: ListView.builder(
                           itemCount: questionDataProvider.questionList.length,
                           controller: scrollController,

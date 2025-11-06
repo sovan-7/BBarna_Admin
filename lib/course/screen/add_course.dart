@@ -68,7 +68,7 @@ class _AddCourseState extends State<AddCourse> {
                       alignment: Alignment.topCenter,
                       padding: EdgeInsets.only(
                           left: 20, right: 20, top: width < 900 ? 20 : 100),
-                      color: AppColorsInApp.colorGrey.withOpacity(0.1),
+                      color: AppColorsInApp.colorGrey.withValues(alpha: .1),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -97,7 +97,7 @@ class _QuizListState extends State<QuizList> {
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColorsInApp.colorGrey.withOpacity(0.2)),
+                      color: AppColorsInApp.colorGrey.withValues(alpha: .2)),
                   child: ListView.builder(
                       itemCount: quizDataProvider.quizList.length,
                       itemBuilder: (context, index) {

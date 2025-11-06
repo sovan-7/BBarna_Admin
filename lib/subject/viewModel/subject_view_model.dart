@@ -45,7 +45,7 @@ class SubjectViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  searchSubject({required String searchText}) {
+  void searchSubject({required String searchText}) {
     if (searchText.isEmpty) {
       subjectList = copySubjectList;
     } else {
@@ -61,7 +61,7 @@ class SubjectViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  filterSubject() {
+  void filterSubject() {
     subjectList
         .sort((a, b) => b.timeStamp.compareTo(a.timeStamp));
   }

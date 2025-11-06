@@ -93,7 +93,7 @@ class _PDFListState extends State<PDFList> {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: AppColorsInApp.colorGrey.withOpacity(0.2)),
+                        color: AppColorsInApp.colorGrey.withValues(alpha: .2)),
                     child: ListView.builder(
                         itemCount: pdfDataProvider.pdfList.length,
                         itemBuilder: (context, index) {

@@ -82,7 +82,7 @@ class UnitCard extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
-                            color: AppColorsInApp.colorOrange.withOpacity(0.6)),
+                            color: AppColorsInApp.colorOrange.withValues(alpha: .6)),
                         child: const Text(
                           "Course Name: ",
                           style: TextStyle(

@@ -99,7 +99,7 @@ class _AudioListState extends State<AudioList> {
                   ),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey.withOpacity(0.2)),
+                      color: Colors.grey.withValues(alpha: .2)),
                   child: ListView.builder(
                       itemCount: audioDataProvider.audioList.length,
                       itemBuilder: (context, index) {

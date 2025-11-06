@@ -62,7 +62,7 @@ class _AddQuizState extends State<AddQuiz> {
                         left: 20,
                         right: 20,
                       ),
-                      color: AppColorsInApp.colorGrey.withOpacity(0.1),
+                      color: AppColorsInApp.colorGrey.withValues(alpha: .1),
                       child: Container(
                         alignment: Alignment.center,
                         margin: const EdgeInsets.only(top: 20),
